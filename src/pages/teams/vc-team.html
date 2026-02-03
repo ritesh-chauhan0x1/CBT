@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity - Team VC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .team-header h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .team-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .player-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .player-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .player-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .player-info {
+            padding: 20px;
+        }
+
+        .player-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .captain-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: bold;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .team-header {
+                margin-bottom: 30px;
+                padding-bottom: 15px;
+            }
+
+            .team-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .team-header p {
+                font-size: 1rem;
+            }
+
+            .players-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 15px;
+            }
+
+            .player-card {
+                border-radius: 12px;
+            }
+
+            .player-image {
+                height: 200px;
+            }
+
+            .player-info {
+                padding: 15px;
+            }
+
+            .player-name {
+                font-size: 1rem;
+                gap: 8px;
+            }
+
+            .captain-badge {
+                width: 22px;
+                height: 22px;
+                font-size: 0.7rem;
+            }
+
+            .back-button {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
+            .container {
+                padding: 15px;
+                border-radius: 12px;
+            }
+
+            .team-header {
+                margin-bottom: 25px;
+            }
+
+            .team-header h1 {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+
+            .team-header p {
+                font-size: 0.9rem;
+            }
+
+            .players-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
+            }
+
+            .player-image {
+                height: 160px;
+            }
+
+            .player-info {
+                padding: 12px;
+            }
+
+            .player-name {
+                font-size: 0.9rem;
+                gap: 6px;
+            }
+
+            .captain-badge {
+                width: 20px;
+                height: 20px;
+                font-size: 0.65rem;
+            }
+
+            .back-button {
+                padding: 9px 20px;
+                font-size: 0.85rem;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="team-header">
+            <h1>🏀 Velocity (VC)</h1>
+            <p></p>
+        </div>
+
+        <div class="players-grid">
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1770087304/WhatsApp_Image_2026-02-03_at_08.23.49_l4swdm.jpg" alt="Ankan Giri" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">
+                        Ankan Giri
+                        <span class="captain-badge">C</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1769956540/IMG_6090_-_Mohin_Kumar_Gupta_mqa8md.jpg" alt="Mohin Gupta" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">Mohin Gupta</div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1769956565/IMG_20251226_111649_-_Shreyash_Dudani_exljam.jpg" alt="Shreyash Dudani" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">Shreyash Dudani</div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1769956554/IMG-20260131-WA0008_-_4368_RITESH_CHAUHAN_cljbb5.jpg" alt="Saps" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">Saps</div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1769956590/IMG_3831_-_Mukund_Jaiswal_wd0rfl.jpg" alt="Mukund Jaiswal" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">Mukund Jaiswal</div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1769956574/IMG_0344_-_Sahil_Gupta_ibenvb.jpg" alt="Sahil" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">Sahil</div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1769956547/IMG-20240101-WA0003_-_praagya_parajuli_kqxvwc.jpg" alt="Praagya Parajuli" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">Praagya Parajuli</div>
+                </div>
+            </div>
+        </div>
+
+        <a href="../teams.html" class="back-button">← Back to Teams</a>
+    </div>
+</body>
+</html>

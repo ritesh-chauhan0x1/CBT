@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistics - Campus Basketball Tournament</title>
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/page.css">
+  <link rel="stylesheet" href="../css/statistics.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">🏀 Tournament</div>
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../../index.html" class="nav-link">HOME</a></li>
+        <li><a href="teams.html" class="nav-link">TEAMS</a></li>
+        <li><a href="matches.html" class="nav-link">MATCHES</a></li>
+        <li><a href="points.html" class="nav-link">POINTS</a></li>
+        <li><a href="statistics.html" class="nav-link active">STATISTICS</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-container">
+    <h1>Statistics</h1>
+    
+    <!-- Statistics Navigation Buttons -->
+    <div class="stats-nav-buttons">
+      <button class="stat-btn active" onclick="showStats('highest-points')">Highest Points</button>
+      <button class="stat-btn" onclick="showStats('3-point-made')">3-Point Made</button>
+      <button class="stat-btn" onclick="showStats('free-throws')">Free Throws Made</button>
+      <button class="stat-btn" onclick="showStats('total-fouls')">Total Fouls</button>
+    </div>
+
+    <!-- Statistics Content -->
+    <div id="statsContainer">
+      <table class="stats-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Team Rank</th>
+            <th id="statHeader">Points</th>
+          </tr>
+        </thead>
+        <tbody id="statsTableBody">
+          <!-- Data will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="../js/navbar.js"></script>
+  <script src="../js/statistics.js"></script>
+</body>
+</html>

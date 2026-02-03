@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Howler - Team AH</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .team-header h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .team-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .player-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .player-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .player-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .player-info {
+            padding: 20px;
+        }
+
+        .player-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .captain-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: bold;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .team-header {
+                margin-bottom: 30px;
+                padding-bottom: 15px;
+            }
+
+            .team-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .team-header p {
+                font-size: 1rem;
+            }
+
+            .players-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 15px;
+            }
+
+            .player-card {
+                border-radius: 12px;
+            }
+
+            .player-image {
+                height: 200px;
+            }
+
+            .player-info {
+                padding: 15px;
+            }
+
+            .player-name {
+                font-size: 1rem;
+                gap: 8px;
+            }
+
+            .captain-badge {
+                width: 22px;
+                height: 22px;
+                font-size: 0.7rem;
+            }
+
+            .back-button {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
+            .container {
+                padding: 15px;
+                border-radius: 12px;
+            }
+
+            .team-header {
+                margin-bottom: 25px;
+            }
+
+            .team-header h1 {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+
+            .team-header p {
+                font-size: 0.9rem;
+            }
+
+            .players-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
+            }
+
+            .player-image {
+                height: 160px;
+            }
+
+            .player-info {
+                padding: 12px;
+            }
+
+            .player-name {
+                font-size: 0.9rem;
+                gap: 6px;
+            }
+
+            .captain-badge {
+                width: 20px;
+                height: 20px;
+                font-size: 0.65rem;
+            }
+
+            .back-button {
+                padding: 9px 20px;
+                font-size: 0.85rem;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="team-header">
+            <h1>🏀 Apex Howler (AH)</h1>
+            <p></p>
+        </div>
+
+        <div class="players-grid">
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1770087304/WhatsApp_Image_2026-02-03_at_08.23.50_1_tr2gwo.jpg" alt="Raghav Sah" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">
+                        Raghav Sah
+                        <span class="captain-badge">C</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1769956560/IMG-20251105-WA0085_-_SHISHIR_YADAV_kweujk.jpg" alt="Shishir Yadav" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">Shishir Yadav</div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1769956564/IMG_20260131_115552_-_Suhit_Majumder_bhz0wb.jpg" alt="Suhit Ranjan Majumder" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">Suhit Ranjan Majumder</div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1769956576/inbound3930235043688670670_-_HARSHIT_SHAH_lmmdmu.jpg" alt="Harshit Shah" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">Harshit Shah</div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1769956567/1769840040871_-_Yuvaraj_Sharma_netuja.jpg" alt="Yuvaraj Sharma" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">Yuvaraj Sharma</div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <img src="https://res.cloudinary.com/dj85g5tsx/image/upload/v1769956570/IMG-20260127-WA0176_-_Aryan_Singh_lziai9.jpg" alt="Aryan Singh" class="player-image">
+                <div class="player-info">
+                    <div class="player-name">Aryan Singh</div>
+                </div>
+            </div>
+        </div>
+
+        <a href="../teams.html" class="back-button">← Back to Teams</a>
+    </div>
+</body>
+</html>
